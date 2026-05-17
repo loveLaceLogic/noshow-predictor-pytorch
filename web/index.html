@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>No-Show Predictor</title>
+</head>
+
+<body>
+
+<h1>No-Show Predictor</h1>
+
+<form id="predictForm">
+
+  <label>Age:</label>
+  <input type="number" id="age" required><br><br>
+
+  <label>Scholarship:</label>
+  <select id="scholarship">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select><br><br>
+
+  <label>Hypertension:</label>
+  <select id="hypertension">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select><br><br>
+
+  <label>Diabetes:</label>
+  <select id="diabetes">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select><br><br>
+
+  <label>Alcoholism:</label>
+  <select id="alcoholism">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select><br><br>
+
+  <label>Handicap:</label>
+  <select id="handicap">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select><br><br>
+
+  <label>SMS Received:</label>
+  <select id="sms_received">
+    <option value="0">No</option>
+    <option value="1">Yes</option>
+  </select><br><br>
+
+  <label>Waiting Days:</label>
+  <input type="number" id="waiting_days" required><br><br>
+
+  <button type="submit">Predict</button>
+
+</form>
+
+<h2 id="result"></h2>
+
+<script>
+
+document.getElementById("predictForm").addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const data = {
+        age: Number(document.getElementById("age").value),
+        scholarship: Number(document.getElementById("scholarship").value),
+        hypertension: Number(document.getElementById("hypertension").value),
+        diabetes: Number(document.getElementById("diabetes").value),
+        alcoholism: Number(document.getElementById("alcoholism").value),
+        handicap: Number(document.getElementById("handicap").value),
+        sms_received: Number(document.getElementById("sms_received").value),
+        waiting_days: Number(document.getElementById("waiting_days").value)
+    };
+
+    const response = await fetch("http://127.0.0.1:8000/predict", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(data)
+    });
+
+    const result = await response.json();
+
+    document.getElementById("result").innerText =
+        result.prediction + " | Risk Score: " + result.risk_score;
+
+});
+
+</script>
+
+</body>
+</html>
