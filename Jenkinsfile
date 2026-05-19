@@ -2,23 +2,33 @@ pipeline {
     agent any
 
     stages {
-        stage('Verify Files') {
+
+        stage('Install Dependencies') {
             steps {
-                sh 'ls api'
-                sh 'ls web'
-                sh 'test -f requirements.txt'
+                sh '''
+                python3 -m venv .venv
+                . .venv/bin/activate
+                pip install -r requirements.txt
+                '''
             }
         }
 
-        stage('Check Python') {
+        stage('Verify Project Structure') {
             steps {
-                sh 'python3 --version'
+                sh '''
+                ls api
+                ls web
+                test -f requirements.txt
+                '''
             }
         }
 
-        stage('Simple API Check') {
+        stage('Test FastAPI Import') {
             steps {
-                sh 'python3 -c "from api.main import app; print(\"FastAPI app loaded successfully\")"'
+                sh '''
+                . .venv/bin/activate
+                python3 -c "from api.main import app; print('FastAPI app loaded successfully')"
+                '''
             }
         }
     }
