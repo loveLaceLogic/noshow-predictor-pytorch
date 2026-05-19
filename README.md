@@ -103,5 +103,9 @@ Threshold tuning was explored to balance false positives vs missed no-shows in a
 - Add automated Jenkins testing pipeline
 - Containerize application using Docker
 
+---
+### Jenkins CI Pipeline
+
+<img width="717" height="762" alt="jenkins-success" src="https://github.com/user-attachments/assets/a4463d32-0ab6-46c4-8731-3d61c15f6732" />
 
 
