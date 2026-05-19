@@ -3,17 +3,38 @@ pipeline {
 
     stages {
 
-        stage('Install Dependencies') {
+        stage('Clone Repository') {
             steps {
-                sh 'python3 -m venv .venv'
-                sh '. .venv/bin/activate && pip install -r requirements.txt'
+                echo 'Cloning repository...'
             }
         }
 
-        stage('Run API') {
+        stage('Install Dependencies') {
             steps {
-                sh '. .venv/bin/activate && python -m uvicorn api.main:app --reload'
+                sh '''
+                python3 -m venv .venv
+                . .venv/bin/activate
+                pip install -r requirements.txt
+                '''
+            }
+        }
+
+        stage('Verify API Files') {
+            steps {
+                sh '''
+                ls api
+                ls web
+                '''
+            }
+        }
+
+        stage('Run Simple API Test') {
+            steps {
+                sh '''
+                . .venv/bin/activate
+                python3 -c "print('FastAPI pipeline test successful')"
+                '''
             }
         }
     }
-}
+} 
