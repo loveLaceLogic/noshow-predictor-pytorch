@@ -2,39 +2,24 @@ pipeline {
     agent any
 
     stages {
-
-        stage('Clone Repository') {
+        stage('Verify Files') {
             steps {
-                echo 'Cloning repository...'
+                sh 'ls api'
+                sh 'ls web'
+                sh 'test -f requirements.txt'
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Check Python') {
             steps {
-                sh '''
-                python3 -m venv .venv
-                . .venv/bin/activate
-                pip install -r requirements.txt
-                '''
+                sh 'python3 --version'
             }
         }
 
-        stage('Verify API Files') {
+        stage('Simple API Check') {
             steps {
-                sh '''
-                ls api
-                ls web
-                '''
-            }
-        }
-
-        stage('Run Simple API Test') {
-            steps {
-                sh '''
-                . .venv/bin/activate
-                python3 -c "print('FastAPI pipeline test successful')"
-                '''
+                sh 'python3 -c "from api.main import app; print(\"FastAPI app loaded successfully\")"'
             }
         }
     }
-} 
+}
