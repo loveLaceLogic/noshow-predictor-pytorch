@@ -1,3 +1,9 @@
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-ML-red)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
+![Healthcare](https://img.shields.io/badge/Healthcare-Analytics-purple)
+![Conda](https://img.shields.io/badge/Conda-Environment-success)
+
 # 🏥 No-Show Predictor (PyTorch)
 
 Predicting patient appointment no-shows using a real healthcare dataset and a PyTorch neural network, with evaluation focused on operational usefulness rather than raw accuracy.
