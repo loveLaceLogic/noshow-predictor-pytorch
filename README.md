@@ -74,17 +74,16 @@ Threshold tuning was explored to balance false positives vs missed no-shows in a
 
 ```mermaid
 flowchart TD
+    A["Healthcare Appointment Dataset"] --> B["Data Preprocessing"]
+    B --> C["PyTorch Neural Network Training"]
+    C --> D["Saved Model PT File"]
 
-A[Healthcare Appointment Dataset] --> B[Data Preprocessing]
-B --> C[PyTorch Neural Network Training]
-C --> D[Saved Model (.pt)]
+    D --> E["FastAPI REST API"]
+    E --> F["HTML Frontend"]
+    F --> G["Patient No-Show Prediction"]
 
-D --> E[FastAPI REST API]
-E --> F[HTML Frontend]
-F --> G[Patient No-Show Prediction]
-
-D --> H[Model Evaluation]
-H --> I[Precision • Recall • F1 Score]
+    D --> H["Model Evaluation"]
+    H --> I["Precision, Recall, F1 Score"]
 ```
 ## 📸 Screenshots
 
