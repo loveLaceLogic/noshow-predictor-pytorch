@@ -7,7 +7,18 @@
 # 🏥 No-Show Predictor (PyTorch)
 
 Predicting patient appointment no-shows using a real healthcare dataset and a PyTorch neural network, with evaluation focused on operational usefulness rather than raw accuracy.
+---
 
+## ⭐ Project Highlights
+
+- 🏥 Trained on **110,527** real healthcare appointments
+- 🧠 Built a **PyTorch neural network (MLP)** for binary classification
+- ⚡ Developed a **FastAPI REST API** for serving predictions
+- 🌐 Created a simple **HTML frontend** for interactive predictions
+- 📊 Evaluated performance using **Precision, Recall, and F1-score**
+- 🍎 Optimized training with **Apple Silicon (MPS)** acceleration
+- 📦 Supports both **Conda** and **pip** environments
+- 🔄 Includes a **Jenkins CI pipeline** for automated builds
 ---
 
 ## ⭐ Project Highlights
@@ -119,6 +130,21 @@ flowchart TD
 
 ---
 
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TD
+    A["Healthcare Appointment Dataset"] --> B["Data Preprocessing"]
+    B --> C["PyTorch Neural Network Training"]
+    C --> D["Saved Model PT File"]
+
+    D --> E["FastAPI REST API"]
+    E --> F["HTML Frontend"]
+    F --> G["Patient No-Show Prediction"]
+
+    D --> H["Model Evaluation"]
+    H --> I["Precision, Recall, F1 Score"]
+```
 ## 📸 Screenshots
 
 ### Patient Prediction Interface
