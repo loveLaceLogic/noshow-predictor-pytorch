@@ -118,7 +118,7 @@ The trained model was exported for inference through a FastAPI REST API and inte
 flowchart TD
     A["Healthcare Appointment Dataset"] --> B["Data Preprocessing"]
     B --> C["PyTorch Neural Network Training"]
-    C --> D["Saved Model PT File"]
+    C --> D["Trained PyTorch Model (.pt)"]
 
     D --> E["FastAPI REST API"]
     E --> F["HTML Frontend"]
