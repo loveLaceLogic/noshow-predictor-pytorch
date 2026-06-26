@@ -10,6 +10,17 @@ Predicting patient appointment no-shows using a real healthcare dataset and a Py
 
 ---
 
+## ⭐ Project Highlights
+
+- 🏥 Trained on **110,527** real healthcare appointments
+- 🧠 Built a **PyTorch neural network (MLP)** for binary classification
+- ⚡ Developed a **FastAPI REST API** for serving predictions
+- 🌐 Created a simple **HTML frontend** for interactive predictions
+- 📊 Evaluated performance using **Precision, Recall, and F1-score**
+- 🍎 Optimized training with **Apple Silicon (MPS)** acceleration
+- 📦 Supports both **Conda** and **pip** environments
+- 🔄 Includes a **Jenkins CI pipeline** for automated builds
+---
 ## 🔍 Problem Statement
 Missed appointments disrupt clinical workflows, waste staff time, and increase healthcare costs.  
 This project explores whether patient and scheduling data can be used to predict appointment no-shows in advance.
