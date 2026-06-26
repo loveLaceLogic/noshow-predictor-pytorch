@@ -118,24 +118,6 @@ The trained model was exported for inference through a FastAPI REST API and inte
 flowchart TD
     A["Healthcare Appointment Dataset"] --> B["Data Preprocessing"]
     B --> C["PyTorch Neural Network Training"]
-    C --> D["Trained PyTorch Model"]
-
-    D --> E["FastAPI REST API"]
-    E --> F["HTML Frontend"]
-    F --> G["Patient No-Show Prediction"]
-
-    D --> H["Model Evaluation"]
-    H --> I["Precision, Recall, F1 Score"]
-```
-
----
-
-## 🏗️ System Architecture
-
-```mermaid
-flowchart TD
-    A["Healthcare Appointment Dataset"] --> B["Data Preprocessing"]
-    B --> C["PyTorch Neural Network Training"]
     C --> D["Saved Model PT File"]
 
     D --> E["FastAPI REST API"]
