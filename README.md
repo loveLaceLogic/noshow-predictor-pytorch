@@ -70,6 +70,22 @@ Threshold tuning was explored to balance false positives vs missed no-shows in a
 - `eval.py` – Model evaluation, metrics calculation, and confusion matrix generation  
 - `eda.py` – Exploratory data analysis for class imbalance and target distribution
 
+## 🏗️ System Architecture
+
+```mermaid
+flowchart TD
+
+A[Healthcare Appointment Dataset] --> B[Data Preprocessing]
+B --> C[PyTorch Neural Network Training]
+C --> D[Saved Model (.pt)]
+
+D --> E[FastAPI REST API]
+E --> F[HTML Frontend]
+F --> G[Patient No-Show Prediction]
+
+D --> H[Model Evaluation]
+H --> I[Precision • Recall • F1 Score]
+```
 ## 📸 Screenshots
 
 ### Web Interface
